@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import get_user_model
+
+Uaer=get_user_model()
 
 # Create your models here.
 
@@ -20,5 +23,6 @@ class Lead(models.Model):
     # Special_files = models.FileField(null=True, blank=True)
 
 class Agent(models.Model):
+    user=models.ForeignKey(Uaer,on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
