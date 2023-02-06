@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
 class User(AbstractBaseUser):
-    pass
+    username = None
+    email = models.EmailField(('email address'), unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
 # Create your models here.
 
@@ -25,5 +29,4 @@ class Lead(models.Model):
 
 class Agent(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+  
