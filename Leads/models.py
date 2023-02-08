@@ -30,17 +30,8 @@ class Lead(models.Model):
 class Agent(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
 
-class Car(models.Model):
-    CAR_COMPANY=(
-        ('Audi','Audi'),
-        ('macedez','Macedez'),
-        ('toyota','Toyota'),
-    )
+# Leads
 
-    make=models.charField(max_length=150,choice=CAR_COMPANY)
-    model=models.CharField(max_length=20)
-    year=models.integerField(default=2013)
-    
      
 
 
